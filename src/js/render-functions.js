@@ -1,5 +1,7 @@
-export function renderImages(images, container) {
-  container.innerHTML = '';
+export function renderImages(images, container, isNewQuery) {
+  if (isNewQuery) {
+    container.innerHTML = '';
+  }
 
   const galleryHTML = images
     .map(
@@ -31,5 +33,5 @@ export function renderImages(images, container) {
     )
     .join('');
 
-  container.innerHTML = galleryHTML;
+  container.insertAdjacentHTML('beforeend', galleryHTML);
 }
